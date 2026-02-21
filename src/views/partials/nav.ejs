@@ -1,0 +1,24 @@
+<nav class="nav">
+  <div class="nav__brand">
+    <a href="/">SPMS</a>
+  </div>
+  <div class="nav__links">
+    <% if (currentUser) { %>
+      <a href="/student/jobs">Jobs</a>
+      <a href="/student/applied">Applied</a>
+      <form class="nav__form" method="post" action="/auth/logout">
+        <button type="submit" class="btn btn--ghost">Logout</button>
+      </form>
+    <% } else if (currentAdmin) { %>
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/admin/jobs">Manage Jobs</a>
+      <form class="nav__form" method="post" action="/admin/logout">
+        <button type="submit" class="btn btn--ghost">Logout</button>
+      </form>
+    <% } else { %>
+      <a href="/auth/login">Student Login</a>
+      <a href="/auth/register">Student Register</a>
+      <a href="/admin/login">Admin</a>
+    <% } %>
+  </div>
+</nav>

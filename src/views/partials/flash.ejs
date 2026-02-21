@@ -1,0 +1,9 @@
+<% if (messages && messages.length) { %>
+  <div class="flash">
+    <% messages.forEach((message) => { %>
+      <div class="flash__item flash__item--<%= message.type %>">
+        <%= message.text %>
+      </div>
+    <% }) %>
+  </div>
+<% } %>

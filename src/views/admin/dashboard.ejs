@@ -1,0 +1,24 @@
+<%- include("../partials/head") %>
+<%- include("../partials/nav") %>
+<main class="container">
+  <section class="page-header">
+    <h2>Admin Dashboard</h2>
+    <p>Overview of placement activity.</p>
+  </section>
+  <%- include("../partials/flash") %>
+  <section class="stats-grid">
+    <div class="stat-card">
+      <h3>Total Students</h3>
+      <p><%= totals.students %></p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Jobs</h3>
+      <p><%= totals.jobs %></p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Applications</h3>
+      <p><%= totals.applications %></p>
+    </div>
+  </section>
+</main>
+<%- include("../partials/footer") %>

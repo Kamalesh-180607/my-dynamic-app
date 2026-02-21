@@ -1,0 +1,41 @@
+<%- include("../partials/head") %>
+<%- include("../partials/nav") %>
+<main class="container">
+  <section class="page-header">
+    <div>
+      <h2>Applicants</h2>
+      <% if (job) { %>
+        <p><%= job.title %> · <%= job.company %></p>
+      <% } %>
+    </div>
+    <a class="btn btn--ghost" href="/admin/jobs">Back to Jobs</a>
+  </section>
+  <%- include("../partials/flash") %>
+  <section class="card">
+    <% if (!applicants.length) { %>
+      <p>No applicants yet.</p>
+    <% } else { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% applicants.forEach((applicant) => { %>
+            <tr>
+              <td><%= applicant.name %></td>
+              <td><%= applicant.email %></td>
+              <td><span class="badge"><%= applicant.status %></span></td>
+              <td><%= new Date(applicant.applied_at).toLocaleDateString() %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </section>
+</main>
+<%- include("../partials/footer") %>

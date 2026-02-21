@@ -1,0 +1,24 @@
+<%- include("../partials/head") %>
+<%- include("../partials/nav") %>
+<main class="container">
+  <section class="card">
+    <h2>Student Registration</h2>
+    <%- include("../partials/flash") %>
+    <form class="form" method="post" action="/auth/register">
+      <label class="form__label" for="name">Full Name</label>
+      <input class="form__input" type="text" id="name" name="name" required />
+
+      <label class="form__label" for="email">Email</label>
+      <input class="form__input" type="email" id="email" name="email" required />
+
+      <label class="form__label" for="password">Password</label>
+      <input class="form__input" type="password" id="password" name="password" required />
+
+      <label class="form__label" for="confirmPassword">Confirm Password</label>
+      <input class="form__input" type="password" id="confirmPassword" name="confirmPassword" required />
+
+      <button class="btn" type="submit">Create Account</button>
+    </form>
+  </section>
+</main>
+<%- include("../partials/footer") %>

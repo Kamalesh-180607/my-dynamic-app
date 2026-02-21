@@ -1,0 +1,27 @@
+<%- include("../partials/head") %>
+<%- include("../partials/nav") %>
+<main class="container">
+  <section class="card">
+    <h2>Add Job</h2>
+    <%- include("../partials/flash") %>
+    <form class="form" method="post" action="/admin/jobs">
+      <label class="form__label" for="title">Job Title</label>
+      <input class="form__input" type="text" id="title" name="title" required />
+
+      <label class="form__label" for="company">Company</label>
+      <input class="form__input" type="text" id="company" name="company" required />
+
+      <label class="form__label" for="location">Location</label>
+      <input class="form__input" type="text" id="location" name="location" required />
+
+      <label class="form__label" for="salary">Salary</label>
+      <input class="form__input" type="text" id="salary" name="salary" placeholder="Optional" />
+
+      <label class="form__label" for="description">Description</label>
+      <textarea class="form__input form__textarea" id="description" name="description" required></textarea>
+
+      <button class="btn" type="submit">Post Job</button>
+    </form>
+  </section>
+</main>
+<%- include("../partials/footer") %>

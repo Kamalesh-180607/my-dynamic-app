@@ -1,0 +1,36 @@
+<%- include("../partials/head") %>
+<%- include("../partials/nav") %>
+<main class="container">
+  <section class="page-header">
+    <h2>Available Jobs</h2>
+    <p>Browse and apply to open positions.</p>
+  </section>
+  <%- include("../partials/flash") %>
+  <section class="grid">
+    <% if (!jobs.length) { %>
+      <div class="card">
+        <p>No jobs available right now.</p>
+      </div>
+    <% } %>
+    <% jobs.forEach((job) => { %>
+      <article class="card">
+        <h3><%= job.title %></h3>
+        <p class="meta"><%= job.company %> · <%= job.location %></p>
+        <p><%= job.description %></p>
+        <% if (job.salary) { %>
+          <p class="meta">Salary: <%= job.salary %></p>
+        <% } %>
+        <div class="card__actions">
+          <% if (job.application_id) { %>
+            <span class="badge">Applied</span>
+          <% } else { %>
+            <form method="post" action="/student/jobs/<%= job.id %>/apply">
+              <button class="btn" type="submit">Apply</button>
+            </form>
+          <% } %>
+        </div>
+      </article>
+    <% }) %>
+  </section>
+</main>
+<%- include("../partials/footer") %>
